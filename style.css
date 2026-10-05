@@ -1,0 +1,144 @@
+* { box-sizing: border-box; }
+
+body {
+margin: 0;
+min-height: 100vh;
+font-family: "Times New Roman", Times, serif;
+font-size: 1.1rem;
+line-height: 1.6;
+color: #f2f2f2;
+background: linear-gradient(180deg, #0a2a8a 0%, #000 70%);
+background-attachment: fixed;
+}
+
+
+input[type="radio"] {
+position: absolute;
+opacity: 0;
+pointer-events: none;
+}
+
+header, main, footer {
+position: relative;
+max-width: 900px;
+margin: 0 auto;
+padding: 24px 16px;
+}
+
+header { text-align: center; padding-top: 48px;
+nav { margin-top: 12px; }
+nav a { color: #8fc3ff; margin: 0 12px; text-decoration: none; letter-spacing: 1px; }
+nav a:hover { color: #fff; text-decoration: underline; }
+ }
+header h1 img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 600px;
+  height: auto;
+}
+header p {
+font-style: italic;
+font-size: 1.3rem;
+color: #ddd;
+margin-top: 4px;
+text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+
+.fundos div {
+position: fixed;
+inset: 0;
+z-index: -1;
+background-size: cover;
+background-position: center top;
+opacity: 0;
+transition: opacity 0.8s ease;
+
+
+-webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+}
+
+
+.f2 { background-image: url(img/cover2.jpg); }
+
+.f3 { background-image: url(img/cover3.jpg); }
+
+.f4 { background-image: url(img/cover4.jpg); }
+
+#s2:checked ~ .fundos .f2,
+#s3:checked ~ .fundos .f3,
+#s4:checked ~ .fundos .f4 {
+opacity: 0.9;
+}
+
+
+.carrossel {
+display: flex;
+gap: 16px;
+
+padding: 4px 4px;
+}
+
+.carrossel label {
+flex: 0 0 200px;
+scroll-snap-align: center;
+border: 2px solid transparent;
+opacity: 0.6;
+transition: opacity 0.3s, transform 0.3s, border-color 0.3s;
+}
+
+.carrossel img {
+display: block;
+width: 100%;
+aspect-ratio: 1 / 1;
+object-fit: cover;
+}
+
+.carrossel label:hover { opacity: 1; }
+
+
+#s1:checked ~ main label[for="s1"],
+#s2:checked ~ main label[for="s2"],
+#s3:checked ~ main label[for="s3"],
+#s4:checked ~ main label[for="s4"] {
+opacity: 1;
+transform: scale(1.05);
+border-color: #fff;
+}
+
+
+#s1:focus-visible ~ main label[for="s1"],
+#s2:focus-visible ~ main label[for="s2"],
+#s3:focus-visible ~ main label[for="s3"],
+#s4:focus-visible ~ main label[for="s4"] {
+outline: 3px solid #5ab0ff;
+}
+
+
+.info article {
+display: none;
+background: rgba(0, 0, 0, 0.7);
+border-left: 3px solid #fff;
+padding: 20px 24px;
+margin-top: 16px;
+}
+
+.info h2 {
+margin-top: 0;
+font-size: 2rem;
+font-weight: normal;
+letter-spacing: 2px;
+}
+
+.info p { margin: 4px 0; }
+
+#s1:checked ~ main .i1,
+#s2:checked ~ main .i2,
+#s3:checked ~ main .i3,
+#s4:checked ~ main .i4 {
+display: block;
+}
+
+footer { text-align: center; color: #999; font-style: italic; font-size: 0.95rem; }
